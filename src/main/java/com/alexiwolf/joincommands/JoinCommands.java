@@ -1,4 +1,4 @@
-package com.alexiwolf.joincommandrunner;
+package com.alexiwolf.joincommands;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
