@@ -15,11 +15,11 @@ public class SimpleJoinCommandRunner extends JoinCommandRunner {
 
     @Override
     public void runCommandsForNewPlayer(Player player) {
-
+        newPlayerCommands.forEach(player::performCommand);
     }
 
     @Override
     public void runCommandsForReturningPlayer(Player player) {
-
+        returningPlayerCommands.forEach(player::performCommand);
     }
 }
