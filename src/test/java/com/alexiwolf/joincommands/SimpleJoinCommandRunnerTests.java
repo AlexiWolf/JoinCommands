@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.UUID;
 
 import static com.alexiwolf.joincommands.JoinCommandRunnerTests.*;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class SimpleJoinCommandRunnerTests {
