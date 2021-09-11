@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/AlexiWolf/JoinCommands.svg?branch=main)](https://app.travis-ci.com/AlexiWolf/JoinCommands)
+
 # Join Commands
 
 Join Commands is a simple utility for automatically running commands when a Player joins the server.  It's main use is
