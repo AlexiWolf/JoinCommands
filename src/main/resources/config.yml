@@ -1,0 +1,5 @@
+new_player_commands:
+  - say Welcome to the server!
+
+returning_player_commands:
+  - say Welcome back!
