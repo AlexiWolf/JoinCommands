@@ -50,4 +50,20 @@ class SimpleJoinCommandRunnerTests {
         }
     }
 
+    @Test
+    void shouldRunReturningPlayerCommandsForReturningPlayers() {
+        try (MockedStatic<Bukkit> bukkit = mockStatic(Bukkit.class)) {
+            UUID playerUuid = UUID.randomUUID();
+            Player player = mockPlayer(playerUuid);
+            OfflinePlayer offlinePlayer = mockReturningPlayer();
+            PlayerJoinEvent playerJoinEvent = new PlayerJoinEvent(player, "Player has joined.");
+            bukkit.when(() -> Bukkit.getOfflinePlayer(playerUuid))
+                    .thenReturn(offlinePlayer);
+
+            joinCommandRunner.onPlayerJoin(playerJoinEvent);
+
+            verify(player, times(1)).performCommand("motd");
+        }
+    }
+
 }
