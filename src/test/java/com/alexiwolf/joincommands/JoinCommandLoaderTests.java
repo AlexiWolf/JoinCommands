@@ -45,7 +45,6 @@ class JoinCommandLoaderTests {
                         "The file '" + file_name + "' could not be found in the test resources."
                 ).toURI()
         );
-        YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
-        return config;
+        return YamlConfiguration.loadConfiguration(configFile);
     }
 }
