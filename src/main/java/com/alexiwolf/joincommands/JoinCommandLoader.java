@@ -13,6 +13,14 @@ import java.util.stream.Collectors;
 
 public class JoinCommandLoader {
     public static List<JoinCommand> getNewPlayerCommands(Configuration config, Server server) {
+        return getCommandList("new", config, server);
+    }
+
+    public static List<JoinCommand> getReturningPlayerCommands(YamlConfiguration config, Server server) {
+        return getCommandList("returning", config, server);
+    }
+
+    private static List<JoinCommand> getCommandList(String commandType, Configuration config, Server server) {
         return Objects.requireNonNull(
                 config.getConfigurationSection("new_player_commands"),
                 "The 'new_player_commands' section could not be found."
@@ -20,17 +28,6 @@ public class JoinCommandLoader {
                 .getKeys(false)
                 .stream()
                 .map(command -> extract_command("new", config, server, command))
-                .collect(Collectors.toList());
-    }
-
-    public static List<JoinCommand> getReturningPlayerCommands(YamlConfiguration config, Server server) {
-        return Objects.requireNonNull(
-                config.getConfigurationSection("returning_player_commands"),
-                "The 'returning_player_commands' section could not be found."
-        )
-                .getKeys(false)
-                .stream()
-                .map(command -> extract_command("returning", config, server, command))
                 .collect(Collectors.toList());
     }
 
