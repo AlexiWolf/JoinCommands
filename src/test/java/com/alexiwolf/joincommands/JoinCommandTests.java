@@ -1,14 +1,12 @@
 package com.alexiwolf.joincommands;
 
-import com.alexiwolf.joincommands.commands.JoinCommand;
 import com.alexiwolf.joincommands.commands.ConsoleJoinCommand;
+import com.alexiwolf.joincommands.commands.JoinCommand;
 import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
-import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.junit.jupiter.api.Test;
-import org.mockito.MockedStatic;
 
 import java.util.UUID;
 
