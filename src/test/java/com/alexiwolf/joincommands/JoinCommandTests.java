@@ -12,6 +12,6 @@ class JoinCommandTests {
     @Test
     void shouldRunPlayerCommandsAsThePlayer() {
         Player player = mockPlayer(UUID.randomUUID());
-        JoinCommand command = JoinCommand("motd", RunAs.PLAYER);
+        JoinCommand command = new JoinCommand("motd", RunAs.PLAYER);
     }
 }
