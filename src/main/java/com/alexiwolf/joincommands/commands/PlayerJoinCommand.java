@@ -10,6 +10,6 @@ public class PlayerJoinCommand extends JoinCommand {
 
     @Override
     public void runFor(Player player) {
-
+        player.performCommand(text);
     }
 }
