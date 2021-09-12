@@ -18,4 +18,9 @@ public class ConsoleJoinCommand extends JoinCommand {
         ConsoleCommandSender console = server.getConsoleSender();
         server.dispatchCommand(console, text);
     }
+
+    @Override
+    public String toString() {
+        return "Running '" + text + "' as the server console.";
+    }
 }

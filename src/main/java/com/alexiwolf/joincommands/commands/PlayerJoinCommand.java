@@ -12,4 +12,9 @@ public class PlayerJoinCommand extends JoinCommand {
     public void runFor(Player player) {
         player.performCommand(text);
     }
+
+    @Override
+    public String toString() {
+        return "Running '" + text + "' as the player.";
+    }
 }
