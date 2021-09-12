@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,12 +17,21 @@ import static org.mockito.Mockito.*;
 
 public class JoinCommandRunnerTests {
 
+    List<String> newPlayerCommands;
+    List<String> returningPlayerCommands;
+
     JoinCommandRunner joinCommandRunner;
 
     @BeforeEach
-    public void setup() {
-         joinCommandRunner = new TestJoinCommandRunner();
+    void setUp() {
+        newPlayerCommands = new ArrayList<>();
+        newPlayerCommands.add("welcome");
+        newPlayerCommands.add("helpmenu");
+        returningPlayerCommands = new ArrayList<>();
+        returningPlayerCommands.add("motd");
+        joinCommandRunner = new JoinCommandRunner(newPlayerCommands, returningPlayerCommands);
     }
+
 
     @Test
     void shouldBeANewPlayer() {
@@ -74,12 +85,36 @@ public class JoinCommandRunnerTests {
         return player;
     }
 
-    // No-op Implementation
-    private static class TestJoinCommandRunner extends JoinCommandRunner {
-        @Override
-        public void runCommandsForNewPlayer(Player player) { }
+    @Test
+    void shouldRunNewPlayerCommandsForNewPlayers() {
+        try (MockedStatic<Bukkit> bukkit = mockStatic(Bukkit.class)) {
+            UUID playerUuid = UUID.randomUUID();
+            Player player = mockPlayer(playerUuid);
+            OfflinePlayer offlinePlayer = mockNewPlayer();
+            PlayerJoinEvent playerJoinEvent = new PlayerJoinEvent(player, "Player has joined.");
+            bukkit.when(() -> Bukkit.getOfflinePlayer(playerUuid))
+                    .thenReturn(offlinePlayer);
 
-        @Override
-        public void runCommandsForReturningPlayer(Player player) { }
+            joinCommandRunner.onPlayerJoin(playerJoinEvent);
+
+            verify(player, times(1)).performCommand("welcome");
+            verify(player, times(1)).performCommand("helpmenu");
+        }
+    }
+
+    @Test
+    void shouldRunReturningPlayerCommandsForReturningPlayers() {
+        try (MockedStatic<Bukkit> bukkit = mockStatic(Bukkit.class)) {
+            UUID playerUuid = UUID.randomUUID();
+            Player player = mockPlayer(playerUuid);
+            OfflinePlayer offlinePlayer = mockReturningPlayer();
+            PlayerJoinEvent playerJoinEvent = new PlayerJoinEvent(player, "Player has joined.");
+            bukkit.when(() -> Bukkit.getOfflinePlayer(playerUuid))
+                    .thenReturn(offlinePlayer);
+
+            joinCommandRunner.onPlayerJoin(playerJoinEvent);
+
+            verify(player, times(1)).performCommand("motd");
+        }
     }
 }

@@ -7,9 +7,19 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.List;
 import java.util.UUID;
 
-public abstract class JoinCommandRunner implements Listener {
+public class JoinCommandRunner implements Listener {
+
+    private final List<String> newPlayerCommands;
+    private final List<String> returningPlayerCommands;
+
+    public JoinCommandRunner(List<String> newPlayerCommands, List<String> returningPlayerCommands) {
+        this.newPlayerCommands = newPlayerCommands;
+        this.returningPlayerCommands = returningPlayerCommands;
+    }
+
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
@@ -29,7 +39,11 @@ public abstract class JoinCommandRunner implements Listener {
         return !player.hasPlayedBefore();
     }
 
-    public abstract void runCommandsForNewPlayer(Player player);
+    public void runCommandsForNewPlayer(Player player) {
+        newPlayerCommands.forEach(player::performCommand);
+    }
 
-    public abstract void runCommandsForReturningPlayer(Player player);
+    public void runCommandsForReturningPlayer(Player player) {
+        returningPlayerCommands.forEach(player::performCommand);
+    }
 }

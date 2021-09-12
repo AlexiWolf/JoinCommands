@@ -15,7 +15,7 @@ public final class JoinCommands extends JavaPlugin {
 
         List<String> newPlayerCommands = config.getStringList("new_player_commands");
         List<String> returningPlayerCommands = config.getStringList("returning_player_commands");
-        JoinCommandRunner joinCommandRunner = new SimpleJoinCommandRunner(newPlayerCommands, returningPlayerCommands);
+        JoinCommandRunner joinCommandRunner = new JoinCommandRunner(newPlayerCommands, returningPlayerCommands);
 
         Bukkit.getPluginManager().registerEvents(joinCommandRunner, this);
     }
