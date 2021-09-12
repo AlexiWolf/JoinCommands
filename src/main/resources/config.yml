@@ -1,7 +1,7 @@
 new_player_commands:
-  "help":
-    run_as: player
+#  "help":
+#    run_as: player
 
 returning_player_commands:
-  "motd":
-    run_as: player
+#  "motd":
+#    run_as: player
