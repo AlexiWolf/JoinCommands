@@ -1,7 +1,11 @@
 new_player_commands:
-  'help command':
+  'player command':
     run_as: player
+  'console command':
+    run_as: console
 
 returning_player_commands:
-  motd:
+  'player command':
+    run_as: player
+  'console command':
     run_as: console
