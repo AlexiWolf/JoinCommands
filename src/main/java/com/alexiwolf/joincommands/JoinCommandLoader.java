@@ -5,6 +5,7 @@ import com.alexiwolf.joincommands.commands.JoinCommand;
 import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Server;
 import org.bukkit.configuration.Configuration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +23,10 @@ public class JoinCommandLoader {
                 .collect(Collectors.toList());
     }
 
+    public static List<JoinCommand> getReturningPlayerCommands(YamlConfiguration config, Server server) {
+        return null;
+    }
+
     private static JoinCommand extract_command(Configuration config, Server server, String command) {
         String command_path = "new_player_commands." + command;
         String command_type = config.getString(command_path + ".run_as");
@@ -31,4 +36,5 @@ public class JoinCommandLoader {
             return new ConsoleJoinCommand(command, server);
         }
     }
+
 }
