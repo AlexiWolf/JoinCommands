@@ -1,0 +1,5 @@
+new_player_commands:
+  - "help"
+
+returning_player_commands:
+  - "motd"
