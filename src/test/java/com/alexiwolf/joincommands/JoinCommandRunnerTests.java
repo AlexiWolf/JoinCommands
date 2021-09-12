@@ -1,5 +1,6 @@
 package com.alexiwolf.joincommands;
 
+import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -25,10 +26,10 @@ public class JoinCommandRunnerTests {
     @BeforeEach
     void setUp() {
         newPlayerCommands = new ArrayList<>();
-        newPlayerCommands.add("welcome");
-        newPlayerCommands.add("helpmenu");
+        newPlayerCommands.add(new PlayerJoinCommand("welcome"));
+        newPlayerCommands.add(new PlayerJoinCommand("helpmenu"));
         returningPlayerCommands = new ArrayList<>();
-        returningPlayerCommands.add("motd");
+        returningPlayerCommands.add(new PlayerJoinCommand("motd"));
         joinCommandRunner = new JoinCommandRunner(newPlayerCommands, returningPlayerCommands);
     }
 
