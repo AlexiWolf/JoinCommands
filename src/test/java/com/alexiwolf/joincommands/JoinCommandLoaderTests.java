@@ -19,11 +19,21 @@ import static org.mockito.Mockito.mock;
 class JoinCommandLoaderTests {
 
     @Test
-    void shouldLoadNewPlayerCommands() throws IOException, InvalidConfigurationException, URISyntaxException {
+    void shouldLoadNewPlayerCommands() throws URISyntaxException {
         Server server = mock(Server.class);
         YamlConfiguration config = openTestConfigFile("test_config.yml");
 
         List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server);
+
+        assertEquals(1, commands.size());
+    }
+
+    @Test
+    void shouldLoadReturningPlayerCommands() throws URISyntaxException {
+        Server server = mock(Server.class);
+        YamlConfiguration config = openTestConfigFile("test_config.yml");
+
+        List<JoinCommand> commands = JoinCommandLoader.getReturningPlayerCommands(config, server);
 
         assertEquals(1, commands.size());
     }
