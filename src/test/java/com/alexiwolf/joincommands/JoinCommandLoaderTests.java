@@ -1,19 +1,19 @@
 package com.alexiwolf.joincommands;
 
+import com.alexiwolf.joincommands.commands.ConsoleJoinCommand;
 import com.alexiwolf.joincommands.commands.JoinCommand;
+import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Server;
-import org.bukkit.configuration.InvalidConfigurationException;
-import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 
 class JoinCommandLoaderTests {
@@ -25,7 +25,9 @@ class JoinCommandLoaderTests {
 
         List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server);
 
-        assertEquals(1, commands.size());
+        assertEquals(2, commands.size());
+        assertTrue(commands.get(0) instanceof PlayerJoinCommand);
+        assertTrue(commands.get(1) instanceof ConsoleJoinCommand);
     }
 
     @Test
@@ -35,7 +37,9 @@ class JoinCommandLoaderTests {
 
         List<JoinCommand> commands = JoinCommandLoader.getReturningPlayerCommands(config, server);
 
-        assertEquals(1, commands.size());
+        assertEquals(2, commands.size());
+        assertTrue(commands.get(0) instanceof PlayerJoinCommand);
+        assertTrue(commands.get(1) instanceof ConsoleJoinCommand);
     }
 
     private YamlConfiguration openTestConfigFile(String file_name) throws URISyntaxException {
