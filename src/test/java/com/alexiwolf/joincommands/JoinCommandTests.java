@@ -1,5 +1,8 @@
 package com.alexiwolf.joincommands;
 
+import com.alexiwolf.joincommands.commands.JoinCommand;
+import com.alexiwolf.joincommands.commands.ConsoleJoinCommand;
+import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.command.ConsoleCommandSender;
@@ -16,7 +19,7 @@ class JoinCommandTests {
     @Test
     void shouldRunPlayerCommandsAsThePlayer() {
         Player player = mockPlayer(UUID.randomUUID());
-        JoinCommand command = new JoinCommand("motd", RunAs.PLAYER);
+        JoinCommand command = new PlayerJoinCommand("motd");
 
         command.runFor(player);
 
@@ -25,17 +28,14 @@ class JoinCommandTests {
 
     @Test
     void shouldRunConsoleCommandsAsTheServerConsole() {
-        try (MockedStatic<Bukkit> bukkit = mockStatic(Bukkit.class)) {
-            Server server = mock(Server.class);
-            ConsoleCommandSender consoleCommandSender = mock(ConsoleCommandSender.class);
-            when(server.getConsoleSender()).thenReturn(consoleCommandSender);
-            bukkit.when(Bukkit::getServer).thenReturn(server);
-            Player player = mockPlayer(UUID.randomUUID());
-            JoinCommand command = new JoinCommand("motd", RunAs.SERVER_CONSOLE);
+        Server server = mock(Server.class);
+        ConsoleCommandSender consoleCommandSender = mock(ConsoleCommandSender.class);
+        when(server.getConsoleSender()).thenReturn(consoleCommandSender);
+        Player player = mockPlayer(UUID.randomUUID());
+        JoinCommand command = new ConsoleJoinCommand("motd", server);
 
-            command.runFor(player);
+        command.runFor(player);
 
-            verify(server, times(1)).dispatchCommand(consoleCommandSender, "motd");
-        }
+        verify(server, times(1)).dispatchCommand(consoleCommandSender, "motd");
     }
 }
