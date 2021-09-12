@@ -1,5 +1,7 @@
 new_player_commands:
-  - "help"
+  "help":
+    run_as: player
 
 returning_player_commands:
-  - "motd"
+  "motd":
+    run_as: player
