@@ -1,5 +1,6 @@
 package com.alexiwolf.joincommands;
 
+import com.alexiwolf.joincommands.commands.JoinCommand;
 import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -18,8 +19,8 @@ import static org.mockito.Mockito.*;
 
 public class JoinCommandRunnerTests {
 
-    List<String> newPlayerCommands;
-    List<String> returningPlayerCommands;
+    List<JoinCommand> newPlayerCommands;
+    List<JoinCommand> returningPlayerCommands;
 
     JoinCommandRunner joinCommandRunner;
 
