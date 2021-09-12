@@ -1,5 +1,5 @@
 new_player_commands:
-  - say Welcome to the server!
+  - "help"
 
 returning_player_commands:
-  - say Welcome back!
+  - "motd"
