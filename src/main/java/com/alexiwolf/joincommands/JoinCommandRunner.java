@@ -1,5 +1,6 @@
 package com.alexiwolf.joincommands;
 
+import com.alexiwolf.joincommands.commands.JoinCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
@@ -12,10 +13,10 @@ import java.util.UUID;
 
 public class JoinCommandRunner implements Listener {
 
-    private final List<String> newPlayerCommands;
-    private final List<String> returningPlayerCommands;
+    private final List<JoinCommand> newPlayerCommands;
+    private final List<JoinCommand> returningPlayerCommands;
 
-    public JoinCommandRunner(List<String> newPlayerCommands, List<String> returningPlayerCommands) {
+    public JoinCommandRunner(List<JoinCommand> newPlayerCommands, List<JoinCommand> returningPlayerCommands) {
         this.newPlayerCommands = newPlayerCommands;
         this.returningPlayerCommands = returningPlayerCommands;
     }
@@ -39,10 +40,10 @@ public class JoinCommandRunner implements Listener {
     }
 
     public void runCommandsForNewPlayer(Player player) {
-        newPlayerCommands.forEach(player::performCommand);
+        newPlayerCommands.forEach(command -> command.runFor(player));
     }
 
     public void runCommandsForReturningPlayer(Player player) {
-        returningPlayerCommands.forEach(player::performCommand);
+        returningPlayerCommands.forEach(command -> command.runFor(player));
     }
 }
