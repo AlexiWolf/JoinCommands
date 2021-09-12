@@ -1,8 +1,8 @@
 package com.alexiwolf.joincommands;
 
 public class JoinCommand {
-    private String command;
-    private RunAs runAs;
+    public final String command;
+    public final RunAs runAs;
 
     public JoinCommand(String command, RunAs runAs) {
         this.command = command;
