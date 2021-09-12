@@ -1,0 +1,8 @@
+new_player_commands:
+  #
+  'help command':
+    run_as: player
+
+returning_player_commands:
+  motd:
+    run_as: console
