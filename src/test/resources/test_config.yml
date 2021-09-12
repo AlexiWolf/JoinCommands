@@ -1,5 +1,4 @@
 new_player_commands:
-  #
   'help command':
     run_as: player
 
