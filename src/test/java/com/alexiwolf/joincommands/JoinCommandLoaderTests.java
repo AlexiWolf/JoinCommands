@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -20,11 +21,21 @@ class JoinCommandLoaderTests {
     @Test
     void shouldLoadNewPlayerCommands() throws IOException, InvalidConfigurationException, URISyntaxException {
         Server server = mock(Server.class);
-        File configFile = new File(getClass().getClassLoader().getResource("test_config.yml").toURI());
-        YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+        YamlConfiguration config = openTestConfigFile("test_config.yml");
 
         List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server);
 
         assertEquals(1, commands.size());
+    }
+
+    private YamlConfiguration openTestConfigFile(String file_name) throws URISyntaxException {
+        File configFile = new File(
+                Objects.requireNonNull(
+                        getClass().getClassLoader().getResource(file_name),
+                        "The file '" + file_name + "' could not be found in the test resources."
+                ).toURI()
+        );
+        YamlConfiguration config = YamlConfiguration.loadConfiguration(configFile);
+        return config;
     }
 }
