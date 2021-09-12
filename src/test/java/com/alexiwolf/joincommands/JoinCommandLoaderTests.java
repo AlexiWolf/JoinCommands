@@ -30,6 +30,14 @@ class JoinCommandLoaderTests {
         assertTrue(commands.get(1) instanceof ConsoleJoinCommand);
     }
 
+    @Test void shouldHandleEmptyCommandSections() throws URISyntaxException {
+        Server server = mock(Server.class);
+        YamlConfiguration config = openTestConfigFile("empty_config.yml");
+
+        assertEquals(0, JoinCommandLoader.getNewPlayerCommands(config, server).size());
+        assertEquals(0, JoinCommandLoader.getReturningPlayerCommands(config, server).size());
+    }
+
     @Test
     void shouldLoadReturningPlayerCommands() throws URISyntaxException {
         Server server = mock(Server.class);
