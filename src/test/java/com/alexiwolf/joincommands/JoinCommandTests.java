@@ -37,6 +37,5 @@ class JoinCommandTests {
 
             verify(server, times(1)).dispatchCommand(consoleCommandSender, "motd");
         }
-
     }
 }
