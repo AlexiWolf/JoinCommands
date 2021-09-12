@@ -1,6 +1,6 @@
 name: JoinCommands
 version: @version@
-main: com.alexiwolf.joincommandrunner.JoinCommands
+main: com.alexiwolf.joincommands.JoinCommands
 api-version: 1.13
 prefix: Join Commands
 authors: [ AlexiWolf ]
