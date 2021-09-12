@@ -1,11 +1,11 @@
 package com.alexiwolf.joincommands;
 
 public class JoinCommand {
-    public final String command;
+    public final String text;
     public final RunAs runAs;
 
-    public JoinCommand(String command, RunAs runAs) {
-        this.command = command;
+    public JoinCommand(String text, RunAs runAs) {
+        this.text = text;
         this.runAs = runAs;
     }
 }
