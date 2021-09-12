@@ -38,9 +38,9 @@ public class JoinCommandLoader {
         String command_path = command_type + "_player_commands." + command;
         String command_runner = config.getString(command_path + ".run_as");
         if (command_runner.equalsIgnoreCase("console")) {
-            return new PlayerJoinCommand(command);
-        } else {
             return new ConsoleJoinCommand(command, server);
+        } else {
+            return new PlayerJoinCommand(command);
         }
     }
 
