@@ -27,12 +27,12 @@ public class JoinCommandLoader {
         )
                 .getKeys(false)
                 .stream()
-                .map(command -> extract_command("new", config, server, command))
+                .map(command -> extractCommand(commandType, config, server, command))
                 .collect(Collectors.toList());
     }
 
-    private static JoinCommand extract_command(String command_type, Configuration config, Server server, String command) {
-        String command_path = command_type + "_player_commands." + command;
+    private static JoinCommand extractCommand(String commandType, Configuration config, Server server, String command) {
+        String command_path = commandType + "_player_commands." + command;
         String command_runner = config.getString(command_path + ".run_as");
         if (command_runner.equalsIgnoreCase("console")) {
             return new ConsoleJoinCommand(command, server);
