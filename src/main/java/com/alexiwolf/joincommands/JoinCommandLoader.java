@@ -6,7 +6,6 @@ import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
 import org.bukkit.Server;
 import org.bukkit.configuration.Configuration;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +17,7 @@ public class JoinCommandLoader {
         return getCommandList("new", config, server);
     }
 
-    public static List<JoinCommand> getReturningPlayerCommands(YamlConfiguration config, Server server) {
+    public static List<JoinCommand> getReturningPlayerCommands(Configuration config, Server server) {
         return getCommandList("returning", config, server);
     }
 
