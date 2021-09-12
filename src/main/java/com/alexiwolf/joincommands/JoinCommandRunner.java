@@ -20,7 +20,6 @@ public class JoinCommandRunner implements Listener {
         this.returningPlayerCommands = returningPlayerCommands;
     }
 
-
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent playerJoinEvent) {
         Player player = playerJoinEvent.getPlayer();
