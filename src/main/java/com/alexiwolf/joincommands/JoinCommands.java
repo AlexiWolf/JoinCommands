@@ -1,9 +1,6 @@
 package com.alexiwolf.joincommands;
 
-import com.alexiwolf.joincommands.commands.ConsoleJoinCommand;
 import com.alexiwolf.joincommands.commands.JoinCommand;
-import com.alexiwolf.joincommands.commands.PlayerJoinCommand;
-import jdk.internal.joptsimple.internal.Strings;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
