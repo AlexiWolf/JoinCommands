@@ -1,0 +1,11 @@
+new_player_commands:
+  'player command':
+    run_as: player
+  'console command':
+    run_as: console
+
+returning_player_commands:
+  'player command':
+    run_as: player
+  'console command':
+    run_as: console

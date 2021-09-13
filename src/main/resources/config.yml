@@ -1,5 +1,9 @@
 new_player_commands:
-  - "help"
+# These commands will only be run when players join the server for the first time.
+#  "help":
+#    run_as: player
 
 returning_player_commands:
-  - "motd"
+# These commands are run for players who've join the server before.
+#  "motd":
+#    run_as: player

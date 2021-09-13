@@ -30,16 +30,33 @@ The commands should be provided as a yaml sting list, and they should not includ
 Here's an example of a config that will:
 
 - Greet new players, and open the help menu for them.
-- Show the MOTD for returning players.
+- Run the MOTD for command for returning players.
 
 ```yaml
 new_player_commands:
-  - welcome
-  - helpmenu
+  'welcome':
+    run_as: player
+  'helpmenu':
+    run_as: player
 
 returning_player_commands:
-  - motd
+  'motd':
+    run_as: player
 ```
+
+It's possible to run commands as either the `player`, or the server `console` by specifying which in the `run_as` 
+value.
+
+```yaml
+new_player_commands:
+  'player command':
+    run_as: player
+  'console command':
+    run_as: console
+```
+
+When running the command as the server using the `console` option, this will bypass permission checks.  This allows 
+you to run **any** command on the server, even if the player does not normally have permission to run it. 
 
 ## License
 
