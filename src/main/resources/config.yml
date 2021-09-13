@@ -7,3 +7,9 @@ returning_player_commands:
 # These commands are run for players who've join the server before.
 #  "motd":
 #    run_as: player
+#
+# Commands can also use the Placeholder API if it's installed.
+#
+#  "say Welcome back, %player_name%!":
+#    run_as: console
+#
