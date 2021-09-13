@@ -20,10 +20,14 @@ repositories {
         name = 'sonatype'
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
 }
 
 dependencies {
     compile 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.10.+'
     testCompile "org.junit.jupiter:junit-jupiter-api:5.3.1"
     testCompile "org.junit.jupiter:junit-jupiter-params:5.3.1"
     testCompile "org.junit.jupiter:junit-jupiter-engine:5.3.1"
