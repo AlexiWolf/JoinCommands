@@ -24,10 +24,10 @@ public final class JoinCommands extends JavaPlugin {
 
     private JoinCommandRunner getJoinCommandRunner(FileConfiguration config) {
         List<JoinCommand> newPlayerCommands = JoinCommandLoader
-                .getNewPlayerCommands(config, Bukkit.getServer());
+                .getNewPlayerCommands(config, Bukkit.getServer(), false);
         logCommandList(newPlayerCommands, "new player");
         List<JoinCommand> returningPlayerCommands = JoinCommandLoader
-                .getReturningPlayerCommands(config, Bukkit.getServer());
+                .getReturningPlayerCommands(config, Bukkit.getServer(), false);
         logCommandList(returningPlayerCommands, "returning player");
         return new JoinCommandRunner(newPlayerCommands, returningPlayerCommands);
     }
