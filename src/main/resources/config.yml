@@ -2,16 +2,16 @@ new_player_commands:
 # Make sure to uncomment (remove the #) these before using them.
 #
 # These commands will only be run when players join the server for the first time.
-#  "help":
+#  'help':
 #    run_as: player
 
 returning_player_commands:
 # These commands are run for players who've join the server before.
-#  "motd":
+#  'motd':
 #    run_as: player
 #
 # Commands can also use the Placeholder API if it's installed.
 #
-#  "say Welcome back, %player_name%!":
+#  'say Welcome back, %player_name%!':
 #    run_as: console
 #
