@@ -9,14 +9,19 @@ public class ConsoleJoinCommand extends JoinCommand {
     private final Server server;
 
     public ConsoleJoinCommand(String text, Server server) {
-        super(text);
+        super(text, false);
+        this.server = server;
+    }
+
+    public ConsoleJoinCommand(String text, Server server, boolean usePlaceholders) {
+        super(text, usePlaceholders);
         this.server = server;
     }
 
     @Override
     public void runFor(Player player) {
         ConsoleCommandSender console = server.getConsoleSender();
-        server.dispatchCommand(console, text);
+        server.dispatchCommand(console, getTextWithFilledPlaceholders(player));
     }
 
     @Override

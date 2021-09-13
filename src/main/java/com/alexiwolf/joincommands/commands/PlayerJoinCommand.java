@@ -5,12 +5,16 @@ import org.bukkit.entity.Player;
 public class PlayerJoinCommand extends JoinCommand {
 
     public PlayerJoinCommand(String text) {
-        super(text);
+        super(text, false);
+    }
+
+    public PlayerJoinCommand(String text, boolean usePlaceholders) {
+        super(text, usePlaceholders);
     }
 
     @Override
     public void runFor(Player player) {
-        player.performCommand(text);
+        player.performCommand(getTextWithFilledPlaceholders(player));
     }
 
     @Override
