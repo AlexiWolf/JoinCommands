@@ -21,6 +21,6 @@ public class ConsoleJoinCommand extends JoinCommand {
 
     @Override
     public String toString() {
-        return "Running '" + text + "' as the server console.";
+        return "Running '" + text + "' as the server console " + getPlaceholderStatusMessage() + ".";
     }
 }

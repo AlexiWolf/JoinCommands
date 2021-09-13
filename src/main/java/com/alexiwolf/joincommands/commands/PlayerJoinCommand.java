@@ -15,6 +15,6 @@ public class PlayerJoinCommand extends JoinCommand {
 
     @Override
     public String toString() {
-        return "Running '" + text + "' as the player.";
+        return "Running '" + text + "' as the player " + getPlaceholderStatusMessage() + ".";
     }
 }

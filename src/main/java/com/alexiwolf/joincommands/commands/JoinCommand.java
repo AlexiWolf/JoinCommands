@@ -21,4 +21,12 @@ public abstract class JoinCommand {
             return text;
         }
     }
+
+    protected String getPlaceholderStatusMessage() {
+        if (usePlaceholders) {
+            return "with placeholder support";
+        } else {
+            return "without placeholder support";
+        }
+    }
 }
