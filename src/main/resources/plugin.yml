@@ -6,3 +6,5 @@ prefix: Join Commands
 authors: [ AlexiWolf ]
 description: Run commands for players when they join.  Allows different commands to be run for new players.  Useful for automatically opening help menus or giving kits when players first join.
 website: https://github.com/AlexiWolf/JoinCommands
+softdepend: [PlaceholderAPI]
+
