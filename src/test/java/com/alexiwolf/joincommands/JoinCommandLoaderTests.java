@@ -23,7 +23,7 @@ class JoinCommandLoaderTests {
         Server server = mock(Server.class);
         YamlConfiguration config = openTestConfigFile("test_config.yml");
 
-        List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server);
+        List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server, false);
 
         assertEquals(2, commands.size());
         assertTrue(commands.get(0) instanceof PlayerJoinCommand);
@@ -35,7 +35,7 @@ class JoinCommandLoaderTests {
         Server server = mock(Server.class);
         YamlConfiguration config = openTestConfigFile("test_config.yml");
 
-        List<JoinCommand> commands = JoinCommandLoader.getReturningPlayerCommands(config, server);
+        List<JoinCommand> commands = JoinCommandLoader.getReturningPlayerCommands(config, server, false);
 
         assertEquals(2, commands.size());
         assertTrue(commands.get(0) instanceof PlayerJoinCommand);
@@ -47,8 +47,8 @@ class JoinCommandLoaderTests {
         Server server = mock(Server.class);
         YamlConfiguration config = openTestConfigFile("empty_config.yml");
 
-        assertEquals(0, JoinCommandLoader.getNewPlayerCommands(config, server).size());
-        assertEquals(0, JoinCommandLoader.getReturningPlayerCommands(config, server).size());
+        assertEquals(0, JoinCommandLoader.getNewPlayerCommands(config, server, false).size());
+        assertEquals(0, JoinCommandLoader.getReturningPlayerCommands(config, server, false).size());
     }
 
     private YamlConfiguration openTestConfigFile(String file_name) throws URISyntaxException {

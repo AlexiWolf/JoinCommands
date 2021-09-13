@@ -27,10 +27,10 @@ public class JoinCommandRunnerTests {
     @BeforeEach
     void setUp() {
         newPlayerCommands = new ArrayList<>();
-        newPlayerCommands.add(new PlayerJoinCommand("welcome"));
-        newPlayerCommands.add(new PlayerJoinCommand("helpmenu"));
+        newPlayerCommands.add(new PlayerJoinCommand("welcome", false));
+        newPlayerCommands.add(new PlayerJoinCommand("helpmenu", false));
         returningPlayerCommands = new ArrayList<>();
-        returningPlayerCommands.add(new PlayerJoinCommand("motd"));
+        returningPlayerCommands.add(new PlayerJoinCommand("motd", false));
         joinCommandRunner = new JoinCommandRunner(newPlayerCommands, returningPlayerCommands);
     }
 

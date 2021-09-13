@@ -17,7 +17,7 @@ class JoinCommandTests {
     @Test
     void shouldRunPlayerCommandsAsThePlayer() {
         Player player = mockPlayer(UUID.randomUUID());
-        JoinCommand command = new PlayerJoinCommand("motd");
+        JoinCommand command = new PlayerJoinCommand("motd", false);
 
         command.runFor(player);
 
@@ -30,7 +30,7 @@ class JoinCommandTests {
         ConsoleCommandSender consoleCommandSender = mock(ConsoleCommandSender.class);
         when(server.getConsoleSender()).thenReturn(consoleCommandSender);
         Player player = mockPlayer(UUID.randomUUID());
-        JoinCommand command = new ConsoleJoinCommand("motd", server);
+        JoinCommand command = new ConsoleJoinCommand("motd", server, false);
 
         command.runFor(player);
 

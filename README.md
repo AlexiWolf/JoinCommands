@@ -58,6 +58,19 @@ new_player_commands:
 When running the command as the server using the `console` option, this will bypass permission checks.  This allows 
 you to run **any** command on the server, even if the player does not normally have permission to run it. 
 
+## Placeholder API Support
+
+If you have the [Placeholder API](https://placeholderapi.com) installed, you can use placeholder
+values in the commands.
+
+```yaml
+returning_player_commands:
+  'say Welcome back, %player_name%!':
+    run_as: console
+```
+
+See the [Placeholder API Wiki](https://github.com/PlaceholderAPI/PlaceholderAPI/wiki) for more information.
+
 ## License
 
 Join Commands is released under the [MIT License](LICENSE).
