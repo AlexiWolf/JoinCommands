@@ -5,6 +5,8 @@
 Join Commands is a simple utility for automatically running commands when a Player joins the server.  It's main use is
 to run help commands for new players when they first join, and to run MOTD commands for returning players.
 
+Currently Join Commands supports Spigot 1.13+. 
+
 ## Goals
 
 - KISS
