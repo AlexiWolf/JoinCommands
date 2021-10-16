@@ -8,14 +8,18 @@ to run help commands for new players when they first join, and to run MOTD comma
 ## Goals
 
 - KISS
-- Run a set of commands for new players.
-- Run a set of commands for returning players.
 - Easy to use and configure.
-- Optional PlaceholderAPI integration.
+
+### Features
+
+- [x] Run a set of commands for new players.
+- [x] Run a set of commands for returning players.
+- [x] Optional PlaceholderAPI integration.
+- [ ] A `reload` command to reload configured commands on the fly.
 
 ## Non-goals
 
-- Providing commands.
+- Providing custom commands (aside from plugin administration commands.)
 - Triggers aside from players joining the server.
 
 ## Installation
