@@ -1,4 +1,4 @@
-import org.apache.tools.ant.filters.ReplaceTokens
+
 
 plugins {
     id "java"
@@ -44,5 +44,8 @@ test {
 }
 
 spigot {
+    authors "AlexiWolf (alexiwolf@pm.me)"
     softDepends "PlaceholderAPI"
+    apiVersion "1.13"
+    load STARTUP
 }
