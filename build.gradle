@@ -27,7 +27,7 @@ repositories {
 }
 
 dependencies {
-    implementation "org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT"
+    implementation spigot("1.13") 
     implementation "me.clip:placeholderapi:2.10.+"
     testImplementation "org.junit.jupiter:junit-jupiter-api:5.3.1"
     testImplementation "org.junit.jupiter:junit-jupiter-params:5.3.1"
