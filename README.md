@@ -1,4 +1,4 @@
-[![Build Status](https://app.travis-ci.com/AlexiWolf/JoinCommands.svg?branch=main)](https://app.travis-ci.com/AlexiWolf/JoinCommands)
+[![CI](https://github.com/AlexiWolf/JoinCommands/actions/workflows/ci.yml/badge.svg)](https://github.com/AlexiWolf/JoinCommands/actions/workflows/ci.yml)
 
 # Join Commands
 
