@@ -1,49 +1,44 @@
 import org.apache.tools.ant.filters.ReplaceTokens
 
 plugins {
-    id 'java'
+    id "java"
+    id "kr.entree.spigradle" version "2.4.2"
 }
 
-group = 'com.alexiwolf'
-version = '0.3'
+group = "com.alexiwolf"
+version = "0.3"
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = "1.8"
+targetCompatibility = "1.8"
 
 repositories {
     mavenCentral()
     maven {
-        name = 'spigotmc-repo'
-        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+        name = "spigotmc-repo"
+        url = "https://hub.spigotmc.org/nexus/content/repositories/snapshots/"
     }
     maven {
-        name = 'sonatype'
-        url = 'https://oss.sonatype.org/content/groups/public/'
+        name = "sonatype"
+        url = "https://oss.sonatype.org/content/groups/public/"
     }
     maven {
-        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+        url = "https://repo.extendedclip.com/content/repositories/placeholderapi/"
     }
 }
 
 dependencies {
-    compile 'org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT'
-    compile 'me.clip:placeholderapi:2.10.+'
-    testCompile "org.junit.jupiter:junit-jupiter-api:5.3.1"
-    testCompile "org.junit.jupiter:junit-jupiter-params:5.3.1"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:5.3.1"
-    testCompile "org.mockito:mockito-core:3.+"
-    testCompile "org.mockito:mockito-inline:3.+"
+    implementation "org.spigotmc:spigot-api:1.13-R0.1-SNAPSHOT"
+    implementation "me.clip:placeholderapi:2.10.+"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.3.1"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:5.3.1"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.3.1"
+    testImplementation "org.mockito:mockito-core:3.+"
+    testImplementation "org.mockito:mockito-inline:3.+"
 }
 
 test {
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
-    }
-}
-
-processResources {
-    from(sourceSets.main.resources.srcDirs) {
-        filter ReplaceTokens, tokens: [version: version]
     }
 }
