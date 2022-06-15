@@ -9,6 +9,7 @@ import org.bukkit.configuration.ConfigurationSection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class JoinCommandLoader {
@@ -46,11 +47,19 @@ public class JoinCommandLoader {
     ) {
         String command_path = commandSection + "." + command;
         String command_runner = config.getString(command_path + ".run_as");
+        Optional<String> permission = getPermissionOrEmpty(command_path + ".if_has_permission", config);
         if (command_runner.equalsIgnoreCase("console")) {
-            return new ConsoleJoinCommand(command, server, usePlaceholders);
+            return new ConsoleJoinCommand(command, server, usePlaceholders, permission);
         } else {
             return new PlayerJoinCommand(command, usePlaceholders);
         }
     }
 
+    private static Optional<String> getPermissionOrEmpty(String path, Configuration config) {
+        if (config.isString(path)) {
+            return Optional.of(config.getString(path));
+        } else {
+            return Optional.empty();
+        }
+    }
 }
