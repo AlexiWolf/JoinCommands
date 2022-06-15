@@ -57,7 +57,8 @@ class JoinCommandLoaderTests {
         YamlConfiguration config = openTestConfigFile("permission_test_config.yml");
 
         List<JoinCommand> commands = JoinCommandLoader.getNewPlayerCommands(config, server, false);
-        assertEquals("test.permission", commands.get(0).getPermission());
+        assertTrue(commands.get(0).permission.isPresent());
+        assertEquals("test.permission", commands.get(0).permission.get());
     }
 
     private YamlConfiguration openTestConfigFile(String file_name) throws URISyntaxException {
