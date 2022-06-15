@@ -1,0 +1,8 @@
+new_player_commands:
+
+returning_player_commands:
+  'test command':
+    run_as: console 
+    if_has_permission: test.permission 
+  'test command no permission':
+    run_as: console
