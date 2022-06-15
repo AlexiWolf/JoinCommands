@@ -1,11 +1,13 @@
 package com.alexiwolf.joincommands.commands;
 
+import java.util.Optional;
+
 import org.bukkit.entity.Player;
 
 public class PlayerJoinCommand extends JoinCommand {
 
     public PlayerJoinCommand(String text, boolean usePlaceholders) {
-        super(text, usePlaceholders);
+        super(text, usePlaceholders, Optional.empty());
     }
 
     @Override
