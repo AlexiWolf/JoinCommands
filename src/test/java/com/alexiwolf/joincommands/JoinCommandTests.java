@@ -8,6 +8,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.junit.jupiter.api.Test;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import static com.alexiwolf.joincommands.JoinCommandRunnerTests.mockPlayer;
@@ -30,7 +31,7 @@ class JoinCommandTests {
         ConsoleCommandSender consoleCommandSender = mock(ConsoleCommandSender.class);
         when(server.getConsoleSender()).thenReturn(consoleCommandSender);
         Player player = mockPlayer(UUID.randomUUID());
-        JoinCommand command = new ConsoleJoinCommand("motd", server, false);
+        JoinCommand command = new ConsoleJoinCommand("motd", server, false, Optional.empty());
 
         command.runFor(player);
 
